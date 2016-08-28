@@ -10,6 +10,8 @@ import numerospseudoaleatorios.modelo.CongruencialMixto;
 import numerospseudoaleatorios.modelo.CongruencialMultiplicativo;
 import numerospseudoaleatorios.modelo.Fibonacci;
 import numerospseudoaleatorios.modelo.Generador;
+import numerospseudoaleatorios.modelo.Prueba;
+import numerospseudoaleatorios.modelo.PruebaPromedios;
 
 /**
  *
@@ -22,11 +24,14 @@ public class NumerosPseusoaleatorios {
      */
     public static void main(String[] args) {
         Generador g;
+        Prueba p;
         //g = new CongruencialMixto(24, 13, 23, 3);
         //g = new CongruencialMultiplicativo(15, 101, 6);
         //g =  new CongruencialCuadratico(26, 27, 27, 8, 13);
         g = new Fibonacci(4, 11, 13, 1, 2, Fibonacci.PRODUCTO);
-        System.out.println(""+g.generar(28).toString());
+        p = new PruebaPromedios();
+        p.probarNumeros(g.generarAlt(29));
+        System.out.println(""+g.generar(29).toString());
     }
     
 }

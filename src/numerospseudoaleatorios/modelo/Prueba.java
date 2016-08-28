@@ -9,9 +9,8 @@ import java.util.List;
 
 /**
  *
- * @author edgar
+ * @author edgarcastro
  */
-public interface Generador {
-    public List<Integer> generar(Integer cantidad);
-    public List<Integer> generarAlt(Integer cantidad);
+public interface Prueba {
+    public Boolean probarNumeros(List<Integer> numeros);
 }

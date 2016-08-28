@@ -35,4 +35,14 @@ public class CongruencialMultiplicativo implements Generador{
         }
         return numeros;
     }
+
+    @Override
+    public List<Integer> generarAlt(Integer cantidad) {
+         List<Integer> numeros = generar(cantidad);
+        List<Integer> lista = new ArrayList<>();
+        for (int i = 0; i < cantidad; i++) {
+            lista.add(numeros.get(i)/this.m);
+        }
+        return lista;
+    }
 }
