@@ -35,11 +35,11 @@ public class CongruencialMixto implements Generador{
     }
     
     @Override
-    public List<Integer> generarAlt(Integer cantidad){
+    public List<Double> generarAlt(Integer cantidad) {
         List<Integer> numeros = generar(cantidad);
-        List<Integer> lista = new ArrayList<>();
+        List<Double> lista = new ArrayList<>();
         for (int i = 0; i < cantidad; i++) {
-            lista.add(numeros.get(i)/this.m);
+            lista.add((double)numeros.get(i)/this.m);
         }
         return lista;
     }

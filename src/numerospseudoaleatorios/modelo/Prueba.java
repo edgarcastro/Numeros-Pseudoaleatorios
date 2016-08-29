@@ -12,5 +12,5 @@ import java.util.List;
  * @author edgarcastro
  */
 public interface Prueba {
-    public Boolean probarNumeros(List<Integer> numeros);
+    public Boolean probarNumeros(List numeros);
 }

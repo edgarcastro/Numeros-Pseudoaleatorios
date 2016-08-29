@@ -15,13 +15,13 @@ import java.util.List;
 public class PruebaKolmogorovSmirnov implements Prueba{
 
     @Override
-    public Boolean probarNumeros(List<Integer> numeros) {
+    public Boolean probarNumeros(List numeros) {
         List<Integer> ordenados = new ArrayList<>();
-        Integer menor = numeros.get(0);
+        Integer menor = (int)numeros.get(0);
         while(numeros.size()>0){
             for (int i = 0; i < numeros.size(); i++) {
-                if(numeros.get(i) < menor){
-                    menor = numeros.get(i);
+                if((int)numeros.get(i) < menor){
+                    menor = (int)numeros.get(i);
                     numeros.remove(numeros.get(i));
                     ordenados.add(menor);
                 }

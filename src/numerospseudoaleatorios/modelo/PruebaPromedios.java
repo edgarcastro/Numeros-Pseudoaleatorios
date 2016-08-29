@@ -15,13 +15,13 @@ public class PruebaPromedios implements Prueba{
     private static final Double Z = 1.96;
 
     @Override
-    public Boolean probarNumeros(List<Integer> numeros) {
+    public Boolean probarNumeros(List numeros) {
         Boolean aceptado = false;
         Double media;
         Double z0;
         Double suma = 0.000000;
         for (int i = 0; i < numeros.size(); i++) {
-            suma = suma + numeros.get(i);
+            suma = suma + (double)numeros.get(i);
         }
         media = suma / numeros.size();
         System.out.println("Media: "+media);

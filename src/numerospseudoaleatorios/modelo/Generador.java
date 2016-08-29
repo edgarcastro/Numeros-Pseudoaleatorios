@@ -13,5 +13,5 @@ import java.util.List;
  */
 public interface Generador {
     public List<Integer> generar(Integer cantidad);
-    public List<Integer> generarAlt(Integer cantidad);
+    public List<Double> generarAlt(Integer cantidad);
 }
