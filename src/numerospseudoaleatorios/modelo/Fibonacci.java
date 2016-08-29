@@ -13,8 +13,7 @@ import java.util.List;
  * @author edgarcastro
  */
 public class Fibonacci implements Generador{
-    private Integer n0;
-    private Integer n1;
+    private List<Integer> semillas;
     private Integer m;
     private Integer s;
     private Integer r;
@@ -25,9 +24,8 @@ public class Fibonacci implements Generador{
     public static Integer PRODUCTO = 3;
     public static Integer DIVISION = 4;
 
-    public Fibonacci(Integer N0, Integer N1, Integer m, Integer s, Integer r, Integer operacion) {
-        this.n0 = N0;
-        this.n1 = N1;
+    public Fibonacci(List<Integer> semillas, Integer m, Integer s, Integer r, Integer operacion) {
+        this.semillas = semillas;
         this.m = m;
         this.s = s;
         this.r = r;
@@ -39,8 +37,11 @@ public class Fibonacci implements Generador{
     @Override
     public List<Integer> generar(Integer cantidad) {
         List<Integer> numeros = new ArrayList<>();
-        numeros.add(this.n0);
-        numeros.add(this.n1);
+        for (int i = 0; i < this.semillas.size(); i++) {
+            numeros.add(this.semillas.get(i));
+        }
+        //numeros.add(this.n0);
+        //numeros.add(this.n1);
         switch (operacion) {
             case 1:
                 for (int i = numeros.size(); i < cantidad; i++) {
