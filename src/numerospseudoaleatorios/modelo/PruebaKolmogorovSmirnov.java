@@ -6,6 +6,7 @@
 package numerospseudoaleatorios.modelo;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -16,18 +17,29 @@ public class PruebaKolmogorovSmirnov implements Prueba{
 
     @Override
     public Boolean probarNumeros(List numeros) {
-        List<Integer> ordenados = new ArrayList<>();
-        Integer menor = (int)numeros.get(0);
-        while(numeros.size()>0){
-            for (int i = 0; i < numeros.size(); i++) {
-                if((int)numeros.get(i) < menor){
-                    menor = (int)numeros.get(i);
-                    numeros.remove(numeros.get(i));
-                    ordenados.add(menor);
-                }
-            }
+        Boolean aceptado = false;
+        Collections.sort(numeros);
+        System.out.println("odernados: "+numeros.toString());
+        List<Double> Fn = new ArrayList<>();
+        Double Xn;
+        int Xi;
+        for (int i = 0; i < numeros.size(); i++) {
+            Xn = (double)(i+1)/numeros.size();
+            Xi = (int) numeros.get(i);
+            Fn.add((double)Math.abs(Xn-Xi));
         }
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Double Dn = Fn.get(0);
+        for (int i = 0; i < Fn.size(); i++) {
+            if(Fn.get(i) > Dn)
+                Dn = Fn.get(i);
+        }
+        System.out.println("Fn = "+Fn.toString());
+        System.out.println("Dn = "+Dn);
+        if(Dn < (1.36/Math.sqrt((double)numeros.size()))){
+            aceptado = true;
+        }
+        System.out.println("Aceptado? "+aceptado);
+        return aceptado;
     }
     
 }
