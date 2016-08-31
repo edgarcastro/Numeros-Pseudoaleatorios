@@ -11,6 +11,7 @@ import numerospseudoaleatorios.modelo.CongruencialMultiplicativo;
 import numerospseudoaleatorios.modelo.Fibonacci;
 import numerospseudoaleatorios.modelo.Generador;
 import numerospseudoaleatorios.modelo.Prueba;
+import numerospseudoaleatorios.modelo.PruebaFrecuencia;
 import numerospseudoaleatorios.modelo.PruebaKolmogorovSmirnov;
 import numerospseudoaleatorios.modelo.PruebaPromedios;
 
@@ -31,8 +32,9 @@ public class NumerosPseusoaleatorios {
         g =  new CongruencialCuadratico(26, 27, 27, 8, 13);
         //g = new Fibonacci(g.generar(16), 13, 1, 2, Fibonacci.PRODUCTO);
         //p = new PruebaPromedios();
-        p = new PruebaKolmogorovSmirnov();
-        p.probarNumeros(g.generarAlt(23));
+        //p = new PruebaKolmogorovSmirnov();
+        p = new PruebaFrecuencia(5, 42.5569);
+        p.probarNumeros(g.generarAlt(30));
         System.out.println(""+g.generar(29).toString());
     }
     
