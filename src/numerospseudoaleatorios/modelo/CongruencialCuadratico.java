@@ -39,6 +39,7 @@ public class CongruencialCuadratico implements Generador{
             potencia = (int)Math.pow(numeros.get(i), 2);
             numeros.add((((this.d*potencia)+(this.a*numeros.get(i))+this.c)%this.m));
         }
+        this.x = numeros.get(numeros.size()-1);
         return numeros;
     }
 
@@ -54,12 +55,14 @@ public class CongruencialCuadratico implements Generador{
 
     @Override
     public Integer generar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Integer potencia = (int)Math.pow(this.x, 2);
+        this.x = (((this.d*potencia)+(this.a*this.x)+this.c) % this.m);
+        return this.x;
     }
 
     @Override
     public Double generarAlt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (double) this.x/this.m;
     }
     
 }
