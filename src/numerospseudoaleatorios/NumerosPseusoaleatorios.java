@@ -27,15 +27,16 @@ public class NumerosPseusoaleatorios {
     public static void main(String[] args) {
         Generador g;
         Prueba p;
-        //g = new CongruencialMixto(24, 13, 23, 3);
+        g = new CongruencialMixto(24, 13, 23, 3);
         //g = new CongruencialMultiplicativo(15, 101, 6);
-        g =  new CongruencialCuadratico(26, 27, 27, 8, 13);
+        //g =  new CongruencialCuadratico(26, 27, 27, 8, 13);
         //g = new Fibonacci(g.generar(16), 13, 1, 2, Fibonacci.PRODUCTO);
         //p = new PruebaPromedios();
         //p = new PruebaKolmogorovSmirnov();
-        p = new PruebaFrecuencia(5, 42.5569);
-        p.probarNumeros(g.generarAlt(30));
-        System.out.println(""+g.generar(29).toString());
+        //p = new PruebaFrecuencia(5, 42.5569);
+        //p.probarNumeros(g.generarAlt(30));
+        System.out.println(""+g.generar(13).toString());
+        System.out.println(""+g.generar().toString());
     }
     
 }

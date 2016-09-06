@@ -76,5 +76,15 @@ public class Fibonacci implements Generador{
         }
         return lista;
     }
+
+    @Override
+    public Integer generar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Double generarAlt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

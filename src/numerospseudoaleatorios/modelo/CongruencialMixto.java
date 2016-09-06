@@ -31,6 +31,7 @@ public class CongruencialMixto implements Generador{
         for (int i = 0; i < cantidad; i++) {
             numeros.add((((this.a*numeros.get(i))+this.c)%this.m));
         }
+        this.x = numeros.get(numeros.size()-1);
         return numeros;
     }
     
@@ -42,6 +43,17 @@ public class CongruencialMixto implements Generador{
             lista.add((double)numeros.get(i)/this.m);
         }
         return lista;
+    }
+
+    @Override
+    public Integer generar() {
+        this.x = (((this.a*this.x)+this.c) % this.m);
+        return this.x;
+    }
+
+    @Override
+    public Double generarAlt() {
+        return (double) this.x/this.m;
     }
     
 }
