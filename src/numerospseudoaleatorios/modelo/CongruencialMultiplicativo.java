@@ -33,6 +33,7 @@ public class CongruencialMultiplicativo implements Generador{
         for (int i = 0; i < cantidad; i++) {
             numeros.add((((this.a*numeros.get(i)))%this.m));
         }
+        this.x = numeros.get(numeros.size()-1);
         return numeros;
     }
 
@@ -48,11 +49,12 @@ public class CongruencialMultiplicativo implements Generador{
 
     @Override
     public Integer generar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.x = (((this.a*this.x)) % this.m);
+        return this.x;
     }
 
     @Override
     public Double generarAlt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return (double) this.x/this.m;
     }
 }
