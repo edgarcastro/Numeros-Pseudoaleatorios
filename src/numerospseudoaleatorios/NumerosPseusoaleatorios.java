@@ -36,7 +36,7 @@ public class NumerosPseusoaleatorios {
         //p = new PruebaFrecuencia(5, 42.5569);
         //p.probarNumeros(g.generarAlt(30));
         System.out.println(""+g.generar(13).toString());
-        System.out.println(""+g.generar().toString());
+        System.out.println(""+g.siguiente().toString());
     }
     
 }

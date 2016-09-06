@@ -78,12 +78,12 @@ public class Fibonacci implements Generador{
     }
 
     @Override
-    public Integer generar() {
+    public Integer siguiente() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Double generarAlt() {
+    public Double siguienteAlt() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

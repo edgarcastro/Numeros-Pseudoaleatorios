@@ -17,12 +17,12 @@ public interface Generador {
      * Método para generar siguiente número aleatorio.
      * @return Siguiente número aleatorio.
      */
-    public Integer generar();
+    public Integer siguiente();
     /**
      * Método para generar siguiente número aleatorio entre 0 y 1.
      * @return Siguiente número aleatorio entre 0 y 1.
      */
-    public Double generarAlt();
+    public Double siguienteAlt();
     /**
      * Método para generar un número especifico de números aleatorios.
      * @param cantidad El parámetro indica la cantidad de números a generar.

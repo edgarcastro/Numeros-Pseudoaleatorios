@@ -54,14 +54,14 @@ public class CongruencialCuadratico implements Generador{
     }
 
     @Override
-    public Integer generar() {
+    public Integer siguiente() {
         Integer potencia = (int)Math.pow(this.x, 2);
         this.x = (((this.d*potencia)+(this.a*this.x)+this.c) % this.m);
         return this.x;
     }
 
     @Override
-    public Double generarAlt() {
+    public Double siguienteAlt() {
         return (double) this.x/this.m;
     }
     

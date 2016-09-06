@@ -46,13 +46,13 @@ public class CongruencialMixto implements Generador{
     }
 
     @Override
-    public Integer generar() {
+    public Integer siguiente() {
         this.x = (((this.a*this.x)+this.c) % this.m);
         return this.x;
     }
 
     @Override
-    public Double generarAlt() {
+    public Double siguienteAlt() {
         return (double) this.x/this.m;
     }
     
