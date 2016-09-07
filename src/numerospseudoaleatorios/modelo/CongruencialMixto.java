@@ -53,6 +53,7 @@ public class CongruencialMixto implements Generador{
 
     @Override
     public Double siguienteAlt() {
+        this.x = (((this.a*this.x)+this.c) % this.m);
         return (double) this.x/this.m;
     }
     

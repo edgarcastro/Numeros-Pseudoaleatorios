@@ -55,6 +55,7 @@ public class CongruencialMultiplicativo implements Generador{
 
     @Override
     public Double siguienteAlt() {
+        this.x = (((this.a*this.x)) % this.m);
         return (double) this.x/this.m;
     }
 }
