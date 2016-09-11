@@ -19,10 +19,10 @@ public class Fibonacci implements Generador{
     private Integer x0;
     private Integer x1;
     
-    public static Integer SUMA = 1;
-    public static Integer RESTA = 2;
-    public static Integer PRODUCTO = 3;
-    public static Integer DIVISION = 4;
+    public static final Integer SUMA = 1;
+    public static final Integer RESTA = 2;
+    public static final Integer PRODUCTO = 3;
+    public static final Integer DIVISION = 4;
 
     public Fibonacci(List<Integer> semillas, Integer m, Integer operacion) {
         this.semillas = semillas;
@@ -32,108 +32,44 @@ public class Fibonacci implements Generador{
     
     @Override
     public List<Integer> generar(Integer cantidad) {
-        List<Integer> numeros = new ArrayList<>();
-        for (int i = 0; i < this.semillas.size(); i++) {
-            numeros.add(this.semillas.get(i));
+        for (int i = this.semillas.size(); i < cantidad; i++) {
+            siguiente();
         }
-        switch (operacion) {
-            case 1:
-                for (int i = numeros.size()-1; i < cantidad; i++) {
-                numeros.add((numeros.get(i-1) + numeros.get(i)) % this.m);
-                this.x0 = numeros.get(numeros.size()-2);
-                this.x1 = numeros.get(numeros.size()-1);
-                }
-                break;
-            case 2:
-                for (int i = numeros.size()-1; i < cantidad; i++) {
-                numeros.add((numeros.get(i-1) - numeros.get(i)) % this.m);
-                this.x0 = numeros.get(numeros.size()-2);
-                this.x1 = numeros.get(numeros.size()-1);
-                }
-                break;
-            case 3:
-                for (int i = numeros.size()-1; i < cantidad; i++) {
-                numeros.add((numeros.get(i-1) * numeros.get(i)) % this.m);
-                this.x0 = numeros.get(numeros.size()-2);
-                this.x1 = numeros.get(numeros.size()-1);
-                }
-                break;
-            case 4:
-                for (int i = numeros.size()-1; i < cantidad; i++) {
-                numeros.add((numeros.get(i-1) / numeros.get(i)) % this.m);
-                this.x0 = numeros.get(numeros.size()-2);
-                this.x1 = numeros.get(numeros.size()-1);
-                }
-                break;
-        }
-        return numeros;
+        return this.semillas;
     }
 
     @Override
     public List<Double> generarAlt(Integer cantidad) {
-        List<Integer> numeros = generar(cantidad);
+        generar(cantidad);
         List<Double> lista = new ArrayList<>();
         for (int i = 0; i < cantidad; i++) {
-            lista.add((double)numeros.get(i)/this.m);
+            lista.add((double)this.semillas.get(i)/this.m);
         }
-        this.x0 = numeros.get(numeros.size()-1);
         return lista;
     }
 
     @Override
     public Integer siguiente() {
-        Integer c = 0;
         switch (operacion) {
             case 1:
-                c = this.x1;
-                this.x1 = (this.x0 + this.x1) % this.m;
-                this.x0 = c;
+                this.semillas.add((this.semillas.get(this.semillas.size()-2) + this.semillas.get(this.semillas.size()-1)) % this.m);
                 break;
             case 2:
-                c = this.x1;
-                this.x1 = (this.x0 - this.x1) % this.m;
-                this.x0 = c;
+                this.semillas.add((this.semillas.get(this.semillas.size()-2) - this.semillas.get(this.semillas.size()-1)) % this.m);
                 break;
             case 3:
-                c = this.x1;
-                this.x1 = (this.x0 * this.x1) % this.m;
-                this.x0 = c;
+                this.semillas.add((this.semillas.get(this.semillas.size()-2) * this.semillas.get(this.semillas.size()-1)) % this.m);
                 break;
             case 4:
-                 c = this.x1;
-                this.x1 = (this.x0 / this.x1) % this.m;
-                this.x0 = c;
+                this.semillas.add((this.semillas.get(this.semillas.size()-2) / this.semillas.get(this.semillas.size()-1)) % this.m);
                 break;
         }
-        return this.x1;
+        return this.semillas.get(this.semillas.size()-1);
     }
 
     @Override
     public Double siguienteAlt() {
-        Integer c = 0;
-        switch (operacion) {
-            case 1:
-                c = this.x1;
-                this.x1 = (this.x0 + this.x1) % this.m;
-                this.x0 = c;
-                break;
-            case 2:
-                c = this.x1;
-                this.x1 = (this.x0 - this.x1) % this.m;
-                this.x0 = c;
-                break;
-            case 3:
-                c = this.x1;
-                this.x1 = (this.x0 * this.x1) % this.m;
-                this.x0 = c;
-                break;
-            case 4:
-                 c = this.x1;
-                this.x1 = (this.x0 / this.x1) % this.m;
-                this.x0 = c;
-                break;
-        }
-        return (double) this.x1/this.m;
+        return (double) siguiente()/this.m;
     }
     
 }
