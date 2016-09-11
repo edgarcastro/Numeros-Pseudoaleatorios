@@ -18,10 +18,10 @@ public class Green implements Generador{
     private Integer k;
     private Integer operacion;
     
-    public static Integer SUMA = 1;
-    public static Integer RESTA = 2;
-    public static Integer PRODUCTO = 3;
-    public static Integer DIVISION = 4;
+    public static final Integer SUMA = 1;
+    public static final Integer RESTA = 2;
+    public static final Integer PRODUCTO = 3;
+    public static final Integer DIVISION = 4;
     
      public Green(List<Integer> semillas, Integer m, Integer k, Integer operacion) {
         this.semillas = semillas;
@@ -32,18 +32,18 @@ public class Green implements Generador{
 
     @Override
     public Integer siguiente() {
-        switch (operacion) {
+        switch (this.operacion) {
             case 1:
-                this.semillas.add((this.semillas.get(this.semillas.size()-1) + this.semillas.get(this.semillas.size()-1-this.k)) % this.m);
+                this.semillas.add((this.semillas.get(semillas.size()-1) + this.semillas.get(semillas.size()-1-this.k)) % this.m);
                 break;
             case 2:
-                this.semillas.add((this.semillas.get(this.semillas.size()-1) - this.semillas.get(this.semillas.size()-1-this.k)) % this.m);
+                this.semillas.add((this.semillas.get(semillas.size()-1) - this.semillas.get(semillas.size()-1-this.k)) % this.m);
                 break;
             case 3:
-                this.semillas.add((this.semillas.get(this.semillas.size()-1) * this.semillas.get(this.semillas.size()-1-this.k)) % this.m);
+                this.semillas.add((this.semillas.get(semillas.size()-1) * this.semillas.get(semillas.size()-1-this.k)) % this.m);
                 break;
             case 4:
-                this.semillas.add((this.semillas.get(this.semillas.size()-1) / this.semillas.get(this.semillas.size()-1-this.k)) % this.m);
+                this.semillas.add((this.semillas.get(semillas.size()-1) / this.semillas.get(semillas.size()-1-this.k)) % this.m);
                 break;
         }
         return this.semillas.get(semillas.size()-1);
@@ -56,27 +56,8 @@ public class Green implements Generador{
 
     @Override
     public List<Integer> generar(Integer cantidad) {
-       switch (operacion) {
-            case 1:
-                for (int i = this.semillas.size()-1; i < cantidad; i++) {
-                this.semillas.add((this.semillas.get(i) + this.semillas.get(i-this.k)) % this.m);
-                }
-                break;
-            case 2:
-                for (int i = this.semillas.size()-1; i < cantidad; i++) {
-                this.semillas.add((this.semillas.get(i) - this.semillas.get(i-this.k)) % this.m);
-                }
-                break;
-            case 3:
-                for (int i = this.semillas.size()-1; i < cantidad; i++) {
-                this.semillas.add((this.semillas.get(i) * this.semillas.get(i-this.k)) % this.m);
-                }
-                break;
-            case 4:
-                for (int i = this.semillas.size()-1; i < cantidad; i++) {
-                this.semillas.add((this.semillas.get(i) / this.semillas.get(i-this.k)) % this.m);
-                }
-                break;
+        for (int i = this.semillas.size(); i < cantidad; i++) {
+            siguiente();
         }
         return this.semillas;
     }
